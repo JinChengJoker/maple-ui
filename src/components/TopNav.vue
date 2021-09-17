@@ -2,6 +2,12 @@
 import { defineComponent, inject, Ref } from 'vue'
 
 export default defineComponent({
+  props: {
+    showAsideIcon: {
+      type: Boolean,
+      required: false
+    }
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
     const toggleAsideVisible = () => {
@@ -18,8 +24,10 @@ export default defineComponent({
 
 <template>
   <nav>
-    <div class="asideIcon" @click="toggleAsideVisible"></div>
-    <div class="logo">图标</div>
+    <div class="asideIcon" v-if="showAsideIcon" @click="toggleAsideVisible"></div>
+    <router-link to="/">
+      <div class="logo">图标</div>
+    </router-link>
     <ul>
       <li>菜单1</li>
       <li>菜单2</li>

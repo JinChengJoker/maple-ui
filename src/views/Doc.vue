@@ -1,28 +1,20 @@
 <script lang="ts">
 import TopNav from '../components/TopNav.vue'
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent, inject, Ref } from 'vue'
 
 export default defineComponent({
   components: {
     TopNav
   },
   setup() {
-    let clientWidth = document.documentElement.clientWidth
-    const asideVisible = ref(clientWidth >= 700 ? true : false)
-    const hideAside = () => {
-      if (clientWidth <= 700) {
+    const asideVisible = inject<Ref<boolean>>('asideVisible')
+    const hideAside = (e: PointerEvent) => {
+      const clientWidth = document.documentElement.clientWidth
+      const nodeName = (e.target as Node).nodeName
+      if (asideVisible && nodeName === 'LI' && clientWidth <= 700) {
         asideVisible.value = false
       }
     }
-    window.addEventListener('resize', () => {
-      clientWidth = document.documentElement.clientWidth
-      if (clientWidth > 700) {
-        asideVisible.value = true
-      } else {
-        asideVisible.value = false
-      }
-    })
-    provide('asideVisible', asideVisible)
     return { asideVisible, hideAside }
   }
 })
@@ -30,23 +22,23 @@ export default defineComponent({
 
 <template>
   <div class="layout">
-    <TopNav />
+    <TopNav :show-aside-icon="true" />
     <div class="content">
       <aside v-if="asideVisible">
         <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/switch" @click="hideAside">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
+        <ol @click="hideAside">
+          <router-link to="/doc/switch">
+            <li>Switch 组件</li>
+          </router-link>
+          <router-link to="/doc/button">
+            <li>Button 组件</li>
+          </router-link>
+          <router-link to="/doc/dialog">
+            <li>Dialog 组件</li>
+          </router-link>
+          <router-link to="/doc/tabs">
+            <li>Tabs 组件</li>
+          </router-link>
         </ol>
       </aside>
       <main>
@@ -78,7 +70,7 @@ aside {
   }
 
   > ol {
-    > li {
+    li {
       padding: 4px 0;
     }
   }
@@ -94,6 +86,7 @@ main {
     position: absolute;
     left: 0;
     top: 0;
+    bottom: 0;
   }
 }
 </style>
