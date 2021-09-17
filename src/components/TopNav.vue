@@ -1,6 +1,24 @@
+<script lang="ts">
+import { inject, Ref } from 'vue'
+
+export default {
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible')
+    const toggleAsideVisible = () => {
+      if (asideVisible) {
+        asideVisible.value = !asideVisible.value
+      }
+    }
+    return {
+      toggleAsideVisible
+    }
+  }
+}
+</script>
+
 <template>
   <nav>
-    <div class="logo">LOGO</div>
+    <div class="logo" @click="toggleAsideVisible">LOGO</div>
     <ul>
       <li>菜单1</li>
       <li>菜单2</li>
