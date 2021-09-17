@@ -1,7 +1,7 @@
 <script lang="ts">
-import { inject, Ref } from 'vue'
+import { defineComponent, inject, Ref } from 'vue'
 
-export default {
+export default defineComponent({
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
     const toggleAsideVisible = () => {
@@ -13,7 +13,7 @@ export default {
       toggleAsideVisible
     }
   }
-}
+})
 </script>
 
 <template>

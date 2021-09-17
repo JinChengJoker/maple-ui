@@ -1,11 +1,12 @@
 <script lang="ts">
+import { defineComponent } from 'vue'
 import TopNav from '../components/TopNav.vue'
 
-export default {
+export default defineComponent({
   components: {
     TopNav
   }
-}
+})
 </script>
 
 <template>
@@ -20,6 +21,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:math";
 main {
   padding: 100px 0;
   display: flex;
@@ -36,7 +38,7 @@ main {
       $h: 28px;
       height: $h;
       line-height: $h;
-      border-radius: $h/2;
+      border-radius: math.div($h, 2);
       padding: 0 8px;
     }
   }
