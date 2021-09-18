@@ -1,10 +1,22 @@
-<script lang="ts" setup>
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent } from 'vue'
 
-const checked = ref(false)
-const toggleSwitch = () => {
-  checked.value = !checked.value
-}
+export default defineComponent({
+  props: {
+    checked: {
+      type: Boolean,
+      required: false
+    }
+  },
+  setup(props, context) {
+    const toggleSwitch = () => {
+      context.emit('update:checked', !props.checked)
+    }
+    return {
+      toggleSwitch,
+    };
+  },
+});
 </script>
 
 <template>
