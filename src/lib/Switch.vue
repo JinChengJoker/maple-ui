@@ -20,18 +20,18 @@ export default defineComponent({
 </script>
 
 <template>
-  <button :class="{ checked }" @click="toggleSwitch">
+  <button class="mp-switch" :class="{ checked }" @click="toggleSwitch">
     <span></span>
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "sass:math";
 
 $btnH: 22px;
 $spanH: $btnH - 4px;
 
-button {
+.mp-switch {
   width: $btnH * 2;
   height: $btnH;
   border: none;
