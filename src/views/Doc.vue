@@ -64,6 +64,7 @@ aside {
   background: lightblue;
   width: 200px;
   padding: 16px;
+  z-index: 10;
 
   > h2 {
     margin-bottom: 4px;
@@ -78,7 +79,7 @@ aside {
 
 main {
   flex: 1;
-  background-color: skyblue;
+  padding: 20px;
 }
 
 @media (max-width: 700px) {

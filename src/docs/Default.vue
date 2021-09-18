@@ -1,5 +1,5 @@
 <template>
   <div>
-    Switch
+    Default
   </div>
 </template>

@@ -43,7 +43,6 @@ nav {
   align-items: center;
   padding: 16px;
   position: relative;
-  z-index: 10;
 
   .asideIcon {
     display: none;
