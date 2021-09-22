@@ -1,10 +1,20 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import Button from '../lib/Button.vue'
 
 export default defineComponent({
   components: {
     Button
+  },
+  setup() {
+    const loading = ref(false)
+    const changeLoading = () => {
+      loading.value = !loading.value
+    }
+    return {
+      loading,
+      changeLoading
+    }
   }
 })
 </script>
@@ -41,7 +51,7 @@ export default defineComponent({
   <section>
     <h2>加载中</h2>
     <div class="demo">
-      <Button loading>默认按钮</Button>
+      <Button :loading="loading" @click="changeLoading">点我点我！</Button>
       <Button type="primary" loading>加载中</Button>
     </div>
   </section>

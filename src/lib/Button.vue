@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 
 const types = ['primary', 'success', 'warning', 'danger']
 const sizes = ['big', 'small']
@@ -41,7 +41,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <button class="mp-button" :class="classes" :disabled="disabled || loading" :loading="loading">
+  <button class="mp-button" :class="classes" :disabled="disabled || loading">
     <span class="mp-button-loading" v-if="loading"></span>
     <slot></slot>
   </button>
