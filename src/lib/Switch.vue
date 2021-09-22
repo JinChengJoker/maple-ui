@@ -38,6 +38,7 @@ $spanH: $btnH - 4px;
   border-radius: math.div($btnH, 2);
   position: relative;
   background-color: #bfbfbf;
+  cursor: pointer;
 
   &:focus,
   &:focus-visible {

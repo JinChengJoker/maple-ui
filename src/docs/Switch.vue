@@ -16,5 +16,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <Switch v-model:checked="checked" />
+  <section>
+    <h2>用法</h2>
+    <div class="demo">
+      <Switch v-model:checked="checked" />
+    </div>
+  </section>
 </template>
