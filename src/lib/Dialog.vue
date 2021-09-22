@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import Button from './Button.vue'
 
 export default defineComponent({
@@ -10,6 +10,10 @@ export default defineComponent({
     visible: {
       type: Boolean,
       required: true,
+    },
+    title: {
+      type: String,
+      required: false,
     },
     onCancel: {
       type: Function,
@@ -26,7 +30,7 @@ export default defineComponent({
 <template>
   <div class="mp-overlay" v-if="visible">
     <div class="mp-dialog">
-      <div class="mp-dialog-header">Dialog 标题</div>
+      <div class="mp-dialog-header" v-if="title">Dialog 标题</div>
       <div class="mp-dialog-content">
         <slot></slot>
       </div>

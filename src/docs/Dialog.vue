@@ -36,7 +36,7 @@ export default defineComponent({
       <Button type="primary" @click="toggleVisible">点我打开 Dialog</Button>
     </div>
   </section>
-  <Dialog :visible="visible" :onCancel="onCancel" :onOk="onOk">
+  <Dialog title="Dialog 标题" :visible="visible" :onCancel="onCancel" :onOk="onOk">
     <p>Dialog 内容</p>
     <p>Dialog 内容</p>
     <p>Dialog 内容</p>
