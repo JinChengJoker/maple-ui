@@ -30,7 +30,7 @@ export default defineComponent({
 <template>
   <div class="mp-overlay" v-if="visible">
     <div class="mp-dialog">
-      <div class="mp-dialog-header" v-if="title">Dialog 标题</div>
+      <div class="mp-dialog-header" v-if="title">{{ title }}</div>
       <div class="mp-dialog-content">
         <slot></slot>
       </div>
