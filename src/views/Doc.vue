@@ -80,6 +80,18 @@ aside {
 main {
   flex: 1;
   padding: 20px;
+
+  :deep(section) {
+    + section {
+      margin-top: 20px;
+    }
+
+    > .demo {
+      padding: 20px;
+      border: 1px solid #dcdfe6;
+      margin-top: 10px;
+    }
+  }
 }
 
 @media (max-width: 700px) {

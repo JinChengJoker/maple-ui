@@ -59,15 +59,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 section {
-  + section {
-    margin-top: 20px;
-  }
-
   > .demo {
-    padding: 20px;
-    border: 1px solid #dcdfe6;
-    margin-top: 10px;
-
     > .mp-button {
       + .mp-button {
         margin-left: 10px;
