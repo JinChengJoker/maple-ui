@@ -28,18 +28,20 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="mp-overlay" v-if="visible">
-    <div class="mp-dialog">
-      <div class="mp-dialog-header" v-if="title">{{ title }}</div>
-      <div class="mp-dialog-content">
-        <slot></slot>
-      </div>
-      <div class="mp-dialog-footer">
-        <Button @click="onCancel">取 消</Button>
-        <Button type="primary" @click="onOk">确 定</Button>
+  <Teleport to="body">
+    <div class="mp-overlay" v-if="visible">
+      <div class="mp-dialog">
+        <div class="mp-dialog-header" v-if="title">{{ title }}</div>
+        <div class="mp-dialog-content">
+          <slot></slot>
+        </div>
+        <div class="mp-dialog-footer">
+          <Button @click="onCancel">取 消</Button>
+          <Button type="primary" @click="onOk">确 定</Button>
+        </div>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <style lang="scss">
