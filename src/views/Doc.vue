@@ -27,11 +27,11 @@ export default defineComponent({
       <aside v-if="asideVisible">
         <h2>组件列表</h2>
         <ol @click="hideAside">
-          <router-link to="/doc/switch">
-            <li>Switch 组件</li>
-          </router-link>
           <router-link to="/doc/button">
             <li>Button 组件</li>
+          </router-link>
+          <router-link to="/doc/switch">
+            <li>Switch 组件</li>
           </router-link>
           <router-link to="/doc/dialog">
             <li>Dialog 组件</li>
