@@ -22,6 +22,10 @@ export default defineComponent({
     onOk: {
       type: Function,
       required: false
+    },
+    onOverlay: {
+      type: Function,
+      required: false
     }
   }
 })
@@ -29,7 +33,7 @@ export default defineComponent({
 
 <template>
   <Teleport to="body">
-    <div class="mp-overlay" v-if="visible">
+    <div class="mp-overlay" v-if="visible" @click.self="onOverlay">
       <div class="mp-dialog">
         <div class="mp-dialog-header" v-if="title">{{ title }}</div>
         <div class="mp-dialog-content">
