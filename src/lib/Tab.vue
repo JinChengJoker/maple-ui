@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mp-tab">
     <slot></slot>
   </div>
 </template>

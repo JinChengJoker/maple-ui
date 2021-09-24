@@ -8,7 +8,7 @@ export default defineComponent({
   },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
-    const hideAside = (e: PointerEvent) => {
+    const hideAside = (e: MouseEvent | TouchEvent) => {
       const clientWidth = document.documentElement.clientWidth
       const nodeName = (e.target as Node).nodeName
       if (asideVisible && nodeName === 'LI' && clientWidth <= 700) {
