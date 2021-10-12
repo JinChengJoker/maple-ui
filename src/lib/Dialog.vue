@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import Button from './Button.vue'
 
 export default defineComponent({
@@ -24,7 +24,7 @@ export default defineComponent({
       required: false
     },
     onOverlay: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: false
     }
   }
